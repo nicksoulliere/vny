@@ -1,8 +1,8 @@
 {
   "id": "/nginx-nsoulliere",
   "cpus": 1,
-  "mem": 128,
-  "instances": 1,
+  "mem": 256,
+  "instances": 2,
   "container": {
     "docker": {
       "image": "nicksoulliere/vny:latest",
