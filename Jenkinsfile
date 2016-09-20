@@ -28,3 +28,15 @@ node {
         sh "docker push nicksoulliere/vny:${gitCommit()}"
     }
 }
+
+    // Deploy
+    stage 'Deploy'
+
+    marathon(
+        url: 'http://marathon.mesos:8080',
+        forceUpdate: false,
+        credentialsId: 'dcos-token',
+        filename: 'marathon.json',
+        appId: 'nginx-nsoulliere',
+        docker: "nicksoulliere/vny:${gitCommit()}".toString()
+    )
